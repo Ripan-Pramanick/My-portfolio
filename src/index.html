@@ -25,6 +25,14 @@
                     colors: {
                         deepBlue: '#0c1022',
                         mutedBlue: '#8f9bb3',
+                    },
+                    screens: {
+                        'xs': '320px',
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '1024px',
+                        'xl': '1280px',
+                        '2xl': '1536px',
                     }
                 }
             }
@@ -279,20 +287,20 @@
         <div class="relative max-w-5xl mx-auto py-10 px-4 min-h-[200vh]" id="timeline-container">
             
             
-            <div class="absolute left-1/2 top-0 bottom-0 transform -translate-x-1/2 w-1 bg-slate-200 z-0 rounded-full dark:bg-white sm:hidden md:block">
+            <div class="absolute left-1/2 top-0 bottom-0 transform -translate-x-1/2 w-1 bg-slate-200 z-0 rounded-full dark:bg-white sm:block xs:hidden">
             </div>
            
-            <div id="progress-line"
-                class="absolute left-1/2 top-0 transform -translate-x-1/2 w-1 bg-red-500 z-0 rounded-full"
-                style="height: 0%;"></div>
+            <div id="progress-lined"
+                class="absolute left-1/2 top-0 transform -translate-x-1/2 w-1 bg-red-500 z-0 rounded-full sm:block xs:hidden"
+                style="height: 0%; "></div>
 
             <div class="flex flex-col space-y-32 mt-10 relative z-10 pb-40">
 
                 <!-- Project 1 (Right Side) -->
-                <div class="timeline-section right-side flex items-center justify-between w-full relative">
+                <div class="timeline-section right-side flex sm:flex-row xs:flex-col-reverse items-center justify-between w-full relative">
 
                     <!-- Left Content: Text & Tags -->
-                    <div class="w-5/12">
+                    <div class="w-5/12 sm:w-5/12 xs:w-full ">
                         <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Coffee Khor</h1>
                         <h3 class="text-xl font-bold mt-1 text-gray-800 dark:text-gray-200">A coffee shop website</h3>
                         <p class="text-lg text-gray-700 dark:text-gray-400 mt-2 mb-4">Lorem ipsum dolor sit amet
@@ -320,13 +328,13 @@
 
                     <!-- Center Node -->
                     <div
-                        class="w-6 h-6 rounded-full bg-slate-300 dark:bg-slate-600 border-4 border-white dark:border-gray-900 z-10 timeline-node relative shrink-0">
+                        class="w-6 h-6 rounded-full bg-slate-300 dark:bg-slate-600 border-4 border-white dark:border-gray-900 z-10 timeline-node relative shrink-0 sm:block xs:hidden">
                     </div>
 
                     <!-- Right Content: Image & Connector -->
-                    <div class="w-5/12 relative flex items-center">
+                    <div class="w-5/12 relative flex items-center sm:w-5/12 xs:w-full">
                         <!-- Connector Line -->
-                        <div class="absolute left-0 h-1 bg-slate-300 dark:bg-slate-600 connector-line transform -translate-x-full z-0 w-full"
+                        <div class="absolute left-0 h-1 bg-slate-300 dark:bg-slate-600 connector-line transform -translate-x-full z-0 w-full sm:block xs:hidden"
                             style="max-width: 40px;"></div>
 
                         <a href="https://coffeekhor.netlify.app/" target="_blank"
@@ -355,15 +363,15 @@
 
                 <!-- project 2 -->
                 <!-- Timeline Container -->
-                <div class="flex flex-col gap-16 w-full py-8">
+                <div class="flex  gap-16 w-full py-8">
 
                     <!-- ITEM 2: Image on Left, Text on Right (Left-Side Layout) -->
-                    <div class="timeline-section left-side flex items-center justify-between w-full relative">
+                    <div class="timeline-section left-side flex sm:flex-row xs:flex-col items-center justify-between w-full relative">
 
                         <!-- Left Content: Image & Connector -->
-                        <div class="w-5/12 relative flex items-center justify-end">
+                        <div class="w-5/12 sm:w-5/12 xs:w-full relative flex items-center justify-end">
                             <!-- Connector Line (Extends Right) -->
-                            <div class="absolute right-0 h-1 bg-slate-300 dark:bg-slate-600 connector-line transform translate-x-full z-0 w-full"
+                            <div class="absolute right-0 h-1 bg-slate-300 dark:bg-slate-600 connector-line transform translate-x-full z-0 w-full sm:block xs:hidden"
                                 style="max-width: 40px;"></div>
 
                             <a href="https://coffeekhor.netlify.app/" target="_blank"
@@ -392,11 +400,11 @@
 
                         <!-- Center Node -->
                         <div
-                            class="w-6 h-6 rounded-full bg-slate-300 dark:bg-slate-600 border-4 border-white dark:border-gray-900 z-10 timeline-node relative shrink-0">
+                            class="w-6 h-6 rounded-full bg-slate-300 dark:bg-slate-600 border-4 border-white dark:border-gray-900 z-10 timeline-node relative shrink-0 sm:block xs:hidden">
                         </div>
 
                         <!-- Right Content: Text & Tags -->
-                        <div class="w-5/12">
+                        <div class="w-5/12 sm:w-5/12 xs:w-full">
                             <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Next Project</h1>
                             <h3 class="text-xl font-bold mt-1 text-gray-800 dark:text-gray-200">An e-commerce app</h3>
                             <p class="text-lg text-gray-700 dark:text-gray-400 mt-2 mb-4">Lorem ipsum dolor sit amet
@@ -421,10 +429,10 @@
                 </div>
 
                 <!-- project 3 -->
-                <div class="timeline-section right-side flex items-center justify-between w-full relative">
+                <div class="timeline-section right-side flex sm:flex-row xs:flex-col-reverse items-center justify-between w-full relative">
 
                     <!-- Left Content: Text & Tags -->
-                    <div class="w-5/12">
+                    <div class="w-5/12 sm:w-5/12 xs:w-full">
                         <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Coffee Khor</h1>
                         <h3 class="text-xl font-bold mt-1 text-gray-800 dark:text-gray-200">A coffee shop website</h3>
                         <p class="text-lg text-gray-700 dark:text-gray-400 mt-2 mb-4">Lorem ipsum dolor sit amet
@@ -452,13 +460,13 @@
 
                     <!-- Center Node -->
                     <div
-                        class="w-6 h-6 rounded-full bg-slate-300 dark:bg-slate-600 border-4 border-white dark:border-gray-900 z-10 timeline-node relative shrink-0">
+                        class="w-6 h-6 rounded-full bg-slate-300 dark:bg-slate-600 border-4 border-white dark:border-gray-900 z-10 timeline-node relative shrink-0 sm:block xs:hidden">
                     </div>
 
                     <!-- Right Content: Image & Connector -->
-                    <div class="w-5/12 relative flex items-center">
+                    <div class="w-5/12 sm:w-5/12 xs:w-full relative flex items-center">
                         <!-- Connector Line -->
-                        <div class="absolute left-0 h-1 bg-slate-300 dark:bg-slate-600 connector-line transform -translate-x-full z-0 w-full"
+                        <div class="absolute left-0 h-1 bg-slate-300 dark:bg-slate-600 connector-line transform -translate-x-full z-0 w-full sm:block xs:hidden"
                             style="max-width: 40px;"></div>
 
                         <a href="https://coffeekhor.netlify.app/" target="_blank"
@@ -490,12 +498,12 @@
                 <div class="flex flex-col gap-16 w-full py-8">
 
                     <!-- ITEM 2: Image on Left, Text on Right (Left-Side Layout) -->
-                    <div class="timeline-section left-side flex items-center justify-between w-full relative">
+                    <div class="timeline-section left-side flex sm:flex-row xs:flex-col items-center justify-between w-full relative">
 
                         <!-- Left Content: Image & Connector -->
-                        <div class="w-5/12 relative flex items-center justify-end">
+                        <div class="w-5/12 sm:w-5/12 xs:w-full relative flex items-center justify-end">
                             <!-- Connector Line (Extends Right) -->
-                            <div class="absolute right-0 h-1 bg-slate-300 dark:bg-slate-600 connector-line transform translate-x-full z-0 w-full"
+                            <div class="absolute right-0 h-1 bg-slate-300 dark:bg-slate-600 connector-line transform translate-x-full z-0 w-full sm:block xs:hidden"
                                 style="max-width: 40px;"></div>
 
                             <a href="https://coffeekhor.netlify.app/" target="_blank"
@@ -524,11 +532,11 @@
 
                         <!-- Center Node -->
                         <div
-                            class="w-6 h-6 rounded-full bg-slate-300 dark:bg-slate-600 border-4 border-white dark:border-gray-900 z-10 timeline-node relative shrink-0">
+                            class="w-6 h-6 rounded-full bg-slate-300 dark:bg-slate-600 border-4 border-white dark:border-gray-900 z-10 timeline-node relative shrink-0 sm:block xs:hidden">
                         </div>
 
                         <!-- Right Content: Text & Tags -->
-                        <div class="w-5/12">
+                        <div class="w-5/12 sm:w-5/12 xs:w-full">
                             <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Next Project</h1>
                             <h3 class="text-xl font-bold mt-1 text-gray-800 dark:text-gray-200">An e-commerce app</h3>
                             <p class="text-lg text-gray-700 dark:text-gray-400 mt-2 mb-4">Lorem ipsum dolor sit amet
@@ -553,10 +561,10 @@
                 </div>
 
                 <!-- project 5 -->
-                <div class="timeline-section right-side flex items-center justify-between w-full relative">
+                <div class="timeline-section right-side flex sm:flex-row xs:flex-col-reverse items-center justify-between w-full relative ">
 
                     <!-- Left Content: Text & Tags -->
-                    <div class="w-5/12">
+                    <div class="w-5/12 sm:w-5/12 xs:w-full">
                         <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Coffee Khor</h1>
                         <h3 class="text-xl font-bold mt-1 text-gray-800 dark:text-gray-200">A coffee shop website</h3>
                         <p class="text-lg text-gray-700 dark:text-gray-400 mt-2 mb-4">Lorem ipsum dolor sit amet
@@ -584,13 +592,13 @@
 
                     <!-- Center Node -->
                     <div
-                        class="w-6 h-6 rounded-full bg-slate-300 dark:bg-slate-600 border-4 border-white dark:border-gray-900 z-10 timeline-node relative shrink-0">
+                        class="w-6 h-6 rounded-full bg-slate-300 dark:bg-slate-600 border-4 border-white dark:border-gray-900 z-10 timeline-node relative shrink-0 sm:block xs:hidden">
                     </div>
 
                     <!-- Right Content: Image & Connector -->
-                    <div class="w-5/12 relative flex items-center">
+                    <div class="w-5/12 sm:w-5/12 xs:w-full relative flex items-center">
                         <!-- Connector Line -->
-                        <div class="absolute left-0 h-1 bg-slate-300 dark:bg-slate-600 connector-line transform -translate-x-full z-0 w-full"
+                        <div class="absolute left-0 h-1 bg-slate-300 dark:bg-slate-600 connector-line transform -translate-x-full z-0 w-full sm:block xs:hidden"
                             style="max-width: 40px;"></div>
 
                         <a href="https://coffeekhor.netlify.app/" target="_blank"
@@ -622,12 +630,12 @@
                 <div class="flex flex-col gap-16 w-full py-8">
 
                     <!-- ITEM 2: Image on Left, Text on Right (Left-Side Layout) -->
-                    <div class="timeline-section left-side flex items-center justify-between w-full relative">
+                    <div class="timeline-section left-side flex sm:flex-row xs:flex-col items-center justify-between w-full relative">
 
                         <!-- Left Content: Image & Connector -->
-                        <div class="w-5/12 relative flex items-center justify-end">
+                        <div class="w-5/12 sm:w-5/12 xs:w-full relative flex items-center justify-end">
                             <!-- Connector Line (Extends Right) -->
-                            <div class="absolute right-0 h-1 bg-slate-300 dark:bg-slate-600 connector-line transform translate-x-full z-0 w-full"
+                            <div class="absolute right-0 h-1 bg-slate-300 dark:bg-slate-600 connector-line transform translate-x-full z-0 w-full sm:block xs:hidden"
                                 style="max-width: 40px;"></div>
 
                             <a href="https://coffeekhor.netlify.app/" target="_blank"
@@ -656,11 +664,11 @@
 
                         <!-- Center Node -->
                         <div
-                            class="w-6 h-6 rounded-full bg-slate-300 dark:bg-slate-600 border-4 border-white dark:border-gray-900 z-10 timeline-node relative shrink-0">
+                            class="w-6 h-6 rounded-full bg-slate-300 dark:bg-slate-600 border-4 border-white dark:border-gray-900 z-10 timeline-node relative shrink-0  sm:block xs:hidden">
                         </div>
 
                         <!-- Right Content: Text & Tags -->
-                        <div class="w-5/12">
+                        <div class="w-5/12 sm:w-5/12 xs:w-full">
                             <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Next Project</h1>
                             <h3 class="text-xl font-bold mt-1 text-gray-800 dark:text-gray-200">An e-commerce app</h3>
                             <p class="text-lg text-gray-700 dark:text-gray-400 mt-2 mb-4">Lorem ipsum dolor sit amet
@@ -727,7 +735,7 @@
     <!-- timeline scroll animation -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const progressLine = document.getElementById('progress-line');
+            const progressLine = document.getElementById('progress-lined');
             const sections = document.querySelectorAll('.timeline-section');
             const arrows = document.querySelectorAll('.down-arrow');
 
