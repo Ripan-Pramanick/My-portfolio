@@ -167,6 +167,91 @@
     </script>
     <!-- preloader end -->
 
+    <!-- Scroll-To-Top -->
+    <!-- chatbot add -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end space-y-1">
+
+        <button id="scrollToTop"
+            class="bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-transform hover:scale-105 flex items-center justify-center">
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" height="25" width="25"
+                fill="currentColor"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                <path
+                    d="M342.6 73.4C330.1 60.9 309.8 60.9 297.3 73.4L137.3 233.4C124.8 245.9 124.8 266.2 137.3 278.7C149.8 291.2 170.1 291.2 182.6 278.7L288 173.3L288 544C288 561.7 302.3 576 320 576C337.7 576 352 561.7 352 544L352 173.3L457.4 278.7C469.9 291.2 490.2 291.2 502.7 278.7C515.2 266.2 515.2 245.9 502.7 233.4L342.7 73.4z" />
+            </svg>
+
+
+        </button>
+
+        <div id="chat-window"
+            class="hidden bg-white rounded-lg shadow-2xl overflow-hidden mb-4 border border-gray-200 transition-all duration-300 origin-bottom-right">
+
+
+
+            <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+            <df-messenger chat-title="Support" agent-id="3e39c9cb-e854-4c0c-9f7f-cb7e0f29fe4c"
+                language-code="en"></df-messenger>
+        </div>
+
+        <button id="chat-toggle-btn"
+            class="bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-transform hover:scale-105 flex items-center justify-center">
+
+            <svg id="icon-chat" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block" fill="currentColor"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+            </svg>
+
+
+        </button>
+
+    </div>
+
+    <script>
+        const chatWindow = document.getElementById('chat-window');
+        const chatToggleBtn = document.getElementById('chat-toggle-btn');
+        const closeHeaderBtn = document.getElementById('close-header-btn');
+        const iconChat = document.getElementById('icon-chat');
+        const iconClose = document.getElementById('icon-close');
+
+
+        function toggleChat() {
+            chatWindow.classList.toggle('hidden');
+
+            // আইকন পরিবর্তন করার লজিক
+            iconChat.classList.toggle('hidden');
+            iconChat.classList.toggle('block');
+            iconClose.classList.toggle('hidden');
+            iconClose.classList.toggle('block');
+        }
+
+        chatToggleBtn.addEventListener('click', toggleChat);
+        closeHeaderBtn.addEventListener('click', toggleChat);
+    </script>
+
+    <script>
+        // Wait for the page to fully load
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // Find the SVG we just gave an ID to
+            const scrollButton = document.getElementById("scrollToTop");
+
+            // If it exists, add a click listener
+            if (scrollButton) {
+                scrollButton.addEventListener("click", function () {
+
+                    // Scroll to the very top smoothly
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+
+                });
+            }
+        });
+    </script>
+    <!-- chatbot close -->
+
     <!-- hero section -->
     <section class="  flex flex-col justify-between h-screen">
         <header class="z-10 pointer-events-none flex items-center justify-between w-full px-4 mt-4 max-w-7xl mx-auto">
@@ -256,39 +341,329 @@
                 <div class="relative ml-4 md:ml-12">
                     <h1
                         class="pointer-events-none text-4xl md:text-[64px] font-['League_Spartan'] font-bold mr-12 dark:text-[#ffd0d0] text-[#600000]">
-                        Ripan Pramanik
+                        Ripan Pramanick
                     </h1>
                     <p
                         class="pointer-events-none font-['Poppins'] text-[20px]  my-4 md:my-8 dark:text-[#ffd0d0] text-[#600000]">
                         <!-- this part call in js file -->
                         I'm a<span class="typing-text dark:text-[#ffd0d0] text-[#000000] ml-2">Developer</span>
                     </p>
-                    <button
-                        class="bg-[#ff0000] py-2 px-5 rounded font-extrabold bg-linear-to-l from-[#ff5454] to-[#ff0000e6] relative hover:scale-110 ease-in-out duration-100 group dark:text-[#ffdede] text-[#600000]">
-                        About Me
 
-                        <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
-                            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                            xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"
-                            xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-                            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" x="0px" y="0px"
-                            width="44" height="44" viewBox="0 0 100 100"
-                            class="absolute top-1/2 -translate-y-1/2 -right-7 group-hover:-right-8 ease-in-out duration-100 dark:text-[#ffd0d0] text-[#600000]">
-                            <g transform="translate(0,-952.36218)">
-                                <path style="
-                  text-indent: 0;
-                  text-transform: none;
-                  direction: ltr;
-                  block-progression: tb;
-                  baseline-shift: baseline;
-                  color: #000000;
-                  enable-background: accumulate;
-                " d="m 88.999835,1002.3621 c 0,-0.4628 -0.2799,-1.0773 -0.5639,-1.3755 l -15.9997,-17.00026 c -0.747,-0.7723 -1.9572,-0.8618 -2.8281,-0.078 -0.7786,0.7007 -0.798,2.0673 -0.078,2.8282 l 12.8435,13.62516 -69.37347,0 c -1.1046,0 -2,0.8954 -2,2 0,1.1046 0.8954,2.0001 2,2.0001 l 69.37347,0 -12.8435,13.6252 c -0.7199,0.7608 -0.6688,2.0938 0.078,2.8281 0.7885,0.7752 2.0925,0.7062 2.8281,-0.078 l 15.9997,-17.0002 c 0.4701,-0.4611 0.556,-0.9052 0.5639,-1.3748 z"
-                                    fill="red" fill-opacity="1" stroke="white" stroke-width="2" marker="none"
-                                    visibility="visible" display="inline" overflow="visible" />
-                            </g>
-                        </svg>
-                    </button>
+                    <div id="landing-page" class=" flex print:hidden">
+                        <button id="about-btn"
+                            class="bg-[#ff0000] py-2 px-5 rounded font-extrabold bg-gradient-to-l from-[#ff5454] to-[#ff0000e6] relative hover:scale-110 ease-in-out duration-100 group dark:text-[#ffdede] text-[#600000] mb-10 z-50 transition-transform">
+                            About Me
+                            <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
+                                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                                xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                x="0px" y="0px" width="44" height="44" viewBox="0 0 100 100"
+                                class="absolute top-1/2 -translate-y-1/2 -right-7 group-hover:-right-8 ease-in-out duration-100 dark:text-[#ffd0d0] text-[#600000] transition-all">
+                                <g transform="translate(0,-952.36218)">
+                                    <path
+                                        style="text-indent: 0; text-transform: none; direction: ltr; block-progression: tb; baseline-shift: baseline; color: #000000; enable-background: accumulate;"
+                                        d="m 88.999835,1002.3621 c 0,-0.4628 -0.2799,-1.0773 -0.5639,-1.3755 l -15.9997,-17.00026 c -0.747,-0.7723 -1.9572,-0.8618 -2.8281,-0.078 -0.7786,0.7007 -0.798,2.0673 -0.078,2.8282 l 12.8435,13.62516 -69.37347,0 c -1.1046,0 -2,0.8954 -2,2 0,1.1046 0.8954,2.0001 2,2.0001 l 69.37347,0 -12.8435,13.6252 c -0.7199,0.7608 -0.6688,2.0938 0.078,2.8281 0.7885,0.7752 2.0925,0.7062 2.8281,-0.078 l 15.9997,-17.0002 c 0.4701,-0.4611 0.556,-0.9052 0.5639,-1.3748 z"
+                                        fill="red" fill-opacity="1" stroke="white" stroke-width="2" marker="none"
+                                        visibility="visible" display="inline" overflow="visible" />
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <!-- Main Resume Container (Hidden Initially) -->
+                    <div id="resume-panel"
+                        class="hidden max-w-5xl md:max-w-4xl sm:max-w-2xl xs:max-w-xl  mx-auto bg-white shadow-xl flex-col md:flex-row max-h-[1056px] print-shadow-none print-m-0 overflow-y-auto print:flex transition-opacity duration-500 opacity-0 relative top-20">
+
+                        <!-- Close Button -->
+                        <button id="close-btn"
+                            class="absolute fixed top-4 right-4 bg-slate-100 hover:bg-red-500 hover:text-white text-slate-500 p-2 rounded-full transition-colors z-50 print:hidden"
+                            aria-label="Close Resume">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+
+                        <!-- Left Column (Sidebar) -->
+                        <div class="w-full md:w-1/3 bg-[#1e293b] h-full text-white p-8 md:p-10 flex flex-col gap-8">
+
+                            <!-- Profile Image -->
+                            <div class="flex flex-col items-center">
+                                <!-- Using a professional initials avatar as a placeholder. You can replace the src with your actual image path -->
+                                <img src="https://ui-avatars.com/api/?name=Ripan+Pramanik&background=0ea5e9&color=fff&size=256&font-size=0.4"
+                                    alt="Ripan Pramanik"
+                                    class="w-48 h-48 rounded-full object-cover border-4 border-slate-500 shadow-md mb-6"
+                                    onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23cbd5e1\' stroke-width=\'1\' stroke-linecap=\'round\' stroke-linejoin=\'round\'%3E%3Cpath d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'%3E%3C/path%3E%3Ccircle cx=\'12\' cy=\'7\' r=\'4\'%3E%3C/circle%3E%3C/svg%3E'; this.classList.remove('border-slate-500');">
+
+                                <h1 class="text-3xl font-bold tracking-widest text-center uppercase">Ripan<br>Pramanik
+                                </h1>
+                            </div>
+
+                            <!-- Contact Info -->
+                            <div>
+                                <ul class="space-y-4 text-sm mt-4">
+                                    <li class="flex items-start gap-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="w-5 h-5 text-sky-400 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <rect width="20" height="16" x="2" y="4" rx="2" />
+                                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                        </svg>
+                                        <a href="mailto:ripan_pramanick@hotmail.com"
+                                            class="hover:text-sky-300 transition-colors break-all">ripan_pramanick@hotmail.com</a>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="w-5 h-5 text-sky-400 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path
+                                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                        </svg>
+                                        <a href="tel:+919641897167" class="hover:text-sky-300 transition-colors">+91
+                                            9641897167</a>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="w-5 h-5 text-sky-400 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
+                                        <span>42/1 Babla Road, Santipur Nadia, WB, India</span>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="w-5 h-5 text-sky-400 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="10" />
+                                            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                                            <path d="M2 12h20" />
+                                        </svg>
+                                        <a href="https://ripanportfolio.in" target="_blank"
+                                            class="hover:text-sky-300 transition-colors">ripanportfolio.in</a>
+                                    </li>
+                                    <li class="flex items-start gap-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            class="w-5 h-5 text-sky-400 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" />
+                                            <line x1="4" x2="4" y1="22" y2="15" />
+                                        </svg>
+                                        <span>Indian</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Objective -->
+                            <div class="mt-4 avoid-break">
+                                <h2
+                                    class="text-xl font-semibold border-b border-slate-600 pb-2 mb-4 uppercase tracking-wider">
+                                    Objective</h2>
+                                <p class="text-sm text-slate-300 leading-relaxed text-justify">
+                                    Detail-oriented web developer with expertise in React.js and React Router, seeking
+                                    to leverage skills in building dynamic user interfaces and enhancing application
+                                    functionality. Passionate about creating seamless user experiences and committed to
+                                    continuous learning and improvement in front-end development.
+                                </p>
+                            </div>
+
+                            <!-- Languages -->
+                            <div class="mt-2 avoid-break">
+                                <h2
+                                    class="text-xl font-semibold border-b border-slate-600 pb-2 mb-4 uppercase tracking-wider">
+                                    Languages</h2>
+                                <ul class="space-y-2 text-sm text-slate-300">
+                                    <li class="flex items-center gap-2">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-sky-400"></div> Hindi
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-sky-400"></div> Bengali
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-sky-400"></div> English
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Skills -->
+                            <div class="mt-2 avoid-break">
+                                <h2
+                                    class="text-xl font-semibold border-b border-slate-600 pb-2 mb-4 uppercase tracking-wider">
+                                    Skills</h2>
+                                <ul class="space-y-2 text-sm text-slate-300">
+                                    <li class="flex items-center gap-2">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-sky-400"></div> Problem Solving
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-sky-400"></div> Time Management
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-sky-400"></div> Organisational
+                                    </li>
+                                    <li class="flex items-center gap-2">
+                                        <div class="w-1.5 h-1.5 rounded-full bg-sky-400"></div> Team Work
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <!-- Right Column (Main Content) -->
+                        <div class="w-full md:w-2/3 p-8 md:p-12 flex flex-col gap-8 bg-white">
+
+                            <!-- Summary Section -->
+                            <div class="avoid-break">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div
+                                        class="w-8 h-8 rounded bg-[#1e293b] flex items-center justify-center text-white shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path
+                                                d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                                            <polyline points="14 2 14 8 20 8" />
+                                            <line x1="16" x2="8" y1="13" y2="13" />
+                                            <line x1="16" x2="8" y1="17" y2="17" />
+                                            <line x1="10" x2="8" y1="9" y2="9" />
+                                        </svg>
+                                    </div>
+                                    <h2 class="text-2xl font-bold uppercase tracking-wider text-[#1e293b]">Summary</h2>
+                                </div>
+                                <div class="w-full h-0.5 bg-slate-200 mb-6"></div>
+                                <p class="text-slate-600 leading-relaxed text-justify">
+                                    Detail-oriented Web Development professional with a Diploma in Web Development,
+                                    equipped with a solid foundation in designing and implementing user-friendly
+                                    websites. Demonstrates strong teamwork skills, collaborating effectively with
+                                    colleagues to achieve common goals and complete projects within deadlines. Eager to
+                                    apply technical expertise and creativity to contribute to innovative web solutions.
+                                    Committed to continuous learning and staying updated with industry trends to enhance
+                                    skill set and drive successful project outcomes.
+                                </p>
+                            </div>
+
+                            <!-- Education Section -->
+                            <div class="avoid-break">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div
+                                        class="w-8 h-8 rounded bg-[#1e293b] flex items-center justify-center text-white shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                            <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                                        </svg>
+                                    </div>
+                                    <h2 class="text-2xl font-bold uppercase tracking-wider text-[#1e293b]">Education
+                                    </h2>
+                                </div>
+                                <div class="w-full h-0.5 bg-slate-200 mb-6"></div>
+
+                                <div class="mb-6">
+                                    <h3 class="text-xl font-bold text-slate-800 uppercase">Diploma in Web Development
+                                    </h3>
+                                    <div
+                                        class="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-1 mb-3 gap-1">
+                                        <span class="text-md font-semibold text-sky-600">Indira Gandhi Computer Academy.
+                                            Santipur Nadia</span>
+                                        <span
+                                            class="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full w-max">Feb
+                                            2023 - Dec 2024</span>
+                                    </div>
+                                    <p class="text-slate-600 leading-relaxed text-justify">
+                                        Completed a Diploma in Web Development, gaining hands-on experience in HTML,
+                                        CSS, and JavaScript. Developed responsive websites and learned best practices in
+                                        UX/UI design. Acquired skills in front-end and back-end technologies, including
+                                        database management and server-side scripting, enhancing my ability to build
+                                        functional web applications.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Courses and Certificates Section -->
+                            <div class="avoid-break">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div
+                                        class="w-8 h-8 rounded bg-[#1e293b] flex items-center justify-center text-white shrink-0">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path
+                                                d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 0 0 4.561 21h14.878a2 2 0 0 0 1.94-1.515L22 17">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <h2 class="text-2xl font-bold uppercase tracking-wider text-[#1e293b]">Courses and
+                                        Certificates</h2>
+                                </div>
+                                <div class="w-full h-0.5 bg-slate-200 mb-6"></div>
+
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-800 uppercase">Diploma in Web Development
+                                    </h3>
+                                    <div
+                                        class="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-1 mb-3 gap-1">
+                                        <span class="text-md font-semibold text-sky-600">Indira Gandhi Computer Academy.
+                                            Santipur</span>
+                                        <span
+                                            class="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full w-max">Feb
+                                            2023 - Dec 2024</span>
+                                    </div>
+                                    <p class="text-slate-600 leading-relaxed text-justify">
+                                        Gained hands-on experience in front-end and back-end web development, including
+                                        HTML, CSS, JavaScript, and PHP. Developed responsive websites and applications,
+                                        implemented databases using MySQL, and learned best practices for web design and
+                                        user experience. Enhanced problem-solving skills through project-based learning
+                                        and collaborative coding exercises.
+                                    </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <script>
+                        document.addEventListener('DOMContentLoaded', () => {
+                            const aboutBtn = document.getElementById('about-btn');
+                            const landingPage = document.getElementById('landing-page');
+                            const resumePanel = document.getElementById('resume-panel');
+                            const closeBtn = document.getElementById('close-btn');
+
+                            aboutBtn.addEventListener('click', () => {
+                                // Hide the landing page containing the button
+                                landingPage.classList.add('hidden');
+                                landingPage.classList.remove('flex');
+
+                                // Show the resume panel
+                                resumePanel.classList.remove('hidden');
+                                resumePanel.classList.add('flex');
+
+                                // Add a small delay for a smooth fade-in effect
+                                setTimeout(() => {
+                                    resumePanel.classList.remove('opacity-0');
+                                    resumePanel.classList.add('opacity-100');
+                                }, 50);
+                            });
+
+                            closeBtn.addEventListener('click', () => {
+                                // Fade out the resume panel
+                                resumePanel.classList.remove('opacity-100');
+                                resumePanel.classList.add('opacity-0');
+
+                                // Wait for the CSS transition (500ms) to complete before hiding the element entirely
+                                setTimeout(() => {
+                                    resumePanel.classList.add('hidden');
+                                    resumePanel.classList.remove('flex');
+
+                                    // Show the landing page
+                                    landingPage.classList.remove('hidden');
+                                    landingPage.classList.add('flex');
+                                }, 500);
+                            });
+                        });
+                    </script>
                 </div>
             </div>
 
@@ -1155,16 +1530,251 @@
 
     <!-- contact section -->
     <section id="contact" class="py-20">
-        <div class="container mx-auto px-3 md:px-10">
-            <form action="https://api.web3forms.com/submit" method="POST">
+        <div class="container mx-auto px-3 md:px-10 flex flex-col md:flex-row items-center justify-around">
+            <img class="w-1/2" src="https://anuragsinghbam.netlify.app/images/contact-me.svg" alt="contact">
+            <form class="w-full" id="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
                 <input type="hidden" name="access_key" value="de57cb00-0f33-4851-897c-c5c46b85922d">
-                <input type="text" name="name" required>
-                <input type="email" name="email" required>
-                <textarea name="message" required></textarea>
-                <button type="submit">Submit</button>
+
+                <!-- Name Field -->
+                <div class="mb-4">
+                    <label class="flex items-center gap-2 mb-2 text-sm font-medium text-slate-700 dark:text-[#F8F8FF]"
+                        for="name">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor"
+                            viewBox="0 0 640 640">
+                            <path
+                                d="M320 312C386.3 312 440 258.3 440 192C440 125.7 386.3 72 320 72C253.7 72 200 125.7 200 192C200 258.3 253.7 312 320 312zM290.3 368C191.8 368 112 447.8 112 546.3C112 562.7 125.3 576 141.7 576L498.3 576C514.7 576 528 562.7 528 546.3C528 447.8 448.2 368 349.7 368L290.3 368z" />
+                        </svg>
+                        Name
+                    </label>
+                    <input id="name"
+                        class="w-full p-2.5 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200"
+                        type="text" name="name" placeholder="John Doe" required>
+                    <p id="name-error"
+                        class="mt-2 text-sm text-red-600 dark:text-red-400 hidden flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span>Please enter your name.</span>
+                    </p>
+                </div>
+
+                <!-- Email Field -->
+                <div class="mb-4">
+                    <label class="flex items-center gap-2 mb-2 text-sm font-medium text-slate-700 dark:text-[#F8F8FF]"
+                        for="email">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor"
+                            viewBox="0 0 640 640">
+                            <path
+                                d="M320 128C214 128 128 214 128 320C128 426 214 512 320 512C337.7 512 352 526.3 352 544C352 561.7 337.7 576 320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320L576 352C576 405 533 448 480 448C450.7 448 424.4 434.8 406.8 414.1C384 435.1 353.5 448 320 448C249.3 448 192 390.7 192 320C192 249.3 249.3 192 320 192C347.9 192 373.7 200.9 394.7 216.1C400.4 211.1 407.8 208 416 208C433.7 208 448 222.3 448 240L448 352C448 369.7 462.3 384 480 384C497.7 384 512 369.7 512 352L512 320C512 214 426 128 320 128zM384 320C384 284.7 355.3 256 320 256C284.7 256 256 284.7 256 320C256 355.3 284.7 384 320 384C355.3 384 384 355.3 384 320z" />
+                        </svg>
+                        Email Address
+                    </label>
+                    <input id="email"
+                        class="w-full p-2.5 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200"
+                        type="email" name="email" placeholder="you@example.com" required>
+                    <p id="email-error"
+                        class="mt-2 text-sm text-red-600 dark:text-red-400 hidden flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span>Please enter a valid email address.</span>
+                    </p>
+                </div>
+
+                <!-- Message Field -->
+                <div class="mb-6">
+                    <label class="flex items-center gap-2 mb-2 text-sm font-medium text-slate-700 dark:text-[#F8F8FF]"
+                        for="message">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor"
+                            viewBox="0 0 640 640">
+                            <path
+                                d="M267.7 576.9C267.7 576.9 267.7 576.9 267.7 576.9L229.9 603.6C222.6 608.8 213 609.4 205 605.3C197 601.2 192 593 192 584L192 512L160 512C107 512 64 469 64 416L64 192C64 139 107 96 160 96L480 96C533 96 576 139 576 192L576 416C576 469 533 512 480 512L359.6 512L267.7 576.9zM332 472.8C340.1 467.1 349.8 464 359.7 464L480 464C506.5 464 528 442.5 528 416L528 192C528 165.5 506.5 144 480 144L160 144C133.5 144 112 165.5 112 192L112 416C112 442.5 133.5 464 160 464L216 464C226.4 464 235.3 470.6 238.6 479.9C239.5 482.4 240 485.1 240 488L240 537.7C272.7 514.6 303.3 493 331.9 472.8z" />
+                        </svg>
+                        Message
+                    </label>
+                    <textarea id="message"
+                        class="w-full p-2.5 min-h-[120px] bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-200 resize-y"
+                        name="message" placeholder="How can we help you?" required></textarea>
+                    <p id="message-error"
+                        class="mt-2 text-sm text-red-600 dark:text-red-400 hidden flex items-center gap-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span>Please enter your message.</span>
+                    </p>
+                </div>
+
+                <button type="submit"
+                    class="w-max  flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 hover:scale-110 text-white font-medium py-2.5 px-4 rounded-md transition-all duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 640 640">
+                        <path
+                            d="M322.5 351.7L523.4 150.9L391 520.3L322.5 351.7zM489.4 117L288.6 317.8L120 249.3L489.4 117zM70.1 280.8L275.9 364.4L359.5 570.2C364.8 583.3 377.6 591.9 391.8 591.9C406.5 591.9 419.6 582.7 424.6 568.8L602.6 72C606.1 62.2 603.6 51.4 596.3 44C589 36.6 578.1 34.2 568.3 37.7L71.4 215.7C57.5 220.7 48.3 233.8 48.3 248.5C48.3 262.7 56.9 275.5 70 280.8z" />
+                    </svg>
+                    Submit
+                </button>
             </form>
         </div>
+
+        <!-- JavaScript Validation Logic -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const form = document.getElementById('contact-form');
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                const messageInput = document.getElementById('message');
+
+                const nameError = document.getElementById('name-error');
+                const emailError = document.getElementById('email-error');
+                const messageError = document.getElementById('message-error');
+
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                // Universal validation function for all fields
+                const validateField = (input, errorMsg, validator) => {
+                    const value = input.value.trim();
+                    input.classList.remove('border-red-500', 'focus:ring-red-500', 'border-green-500', 'focus:ring-green-500', 'dark:border-red-500', 'dark:border-green-500', 'border-slate-300', 'dark:border-slate-600', 'focus:ring-blue-500');
+
+                    // Keep the styling neutral if empty while typing
+                    if (value === '') {
+                        errorMsg.classList.add('hidden');
+                        input.classList.add('border-slate-300', 'dark:border-slate-600', 'focus:ring-blue-500');
+                        return false;
+                    }
+
+                    const isValid = validator(value);
+                    if (!isValid) {
+                        errorMsg.classList.remove('hidden');
+                        input.classList.add('border-red-500', 'dark:border-red-500', 'focus:ring-red-500');
+                    } else {
+                        errorMsg.classList.add('hidden');
+                        input.classList.add('border-green-500', 'dark:border-green-500', 'focus:ring-green-500');
+                    }
+                    return isValid;
+                };
+
+                const validateName = () => validateField(nameInput, nameError, val => val.length > 0);
+                const validateEmail = () => validateField(emailInput, emailError, val => emailRegex.test(val));
+                const validateMessage = () => validateField(messageInput, messageError, val => val.length > 0);
+
+                // Bind events to validate as you type and blur
+                [nameInput, emailInput, messageInput].forEach(input => {
+                    input.addEventListener('input', () => {
+                        if (input === nameInput) validateName();
+                        if (input === emailInput) validateEmail();
+                        if (input === messageInput) validateMessage();
+                    });
+
+                    input.addEventListener('blur', () => {
+                        if (input === nameInput) validateName();
+                        if (input === emailInput) validateEmail();
+                        if (input === messageInput) validateMessage();
+                    });
+                });
+
+                form.addEventListener('submit', (e) => {
+                    const isNameValid = nameInput.value.trim().length > 0;
+                    const isEmailValid = emailRegex.test(emailInput.value.trim());
+                    const isMessageValid = messageInput.value.trim().length > 0;
+
+                    // Force error styling explicitly if the fields are empty
+                    if (!isNameValid) validateField(nameInput, nameError, () => false);
+                    if (!isEmailValid) validateField(emailInput, emailError, () => false);
+                    if (!isMessageValid) validateField(messageInput, messageError, () => false);
+
+                    if (!isNameValid || !isEmailValid || !isMessageValid) {
+                        e.preventDefault();
+
+                        // Shake animation for invalid fields
+                        [nameInput, emailInput, messageInput].forEach(input => {
+                            if (input.classList.contains('border-red-500')) {
+                                input.classList.add('animate-pulse');
+                                setTimeout(() => input.classList.remove('animate-pulse'), 500);
+                            }
+                        });
+                    } else {
+                        // Update the button text while Web3Forms loads
+                        const btn = form.querySelector('button[type="submit"]');
+                        btn.innerHTML = `
+                        <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Sending...
+                    `;
+                        btn.classList.add('cursor-not-allowed', 'opacity-90');
+                    }
+                });
+            });
+        </script>
     </section>
+
+    <footer>
+        <div class="flex flex-col items-center justify-around w-full gap-6 py-6">
+            <p>Ripan Pramanick © 2026</p>
+
+            <a href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                    class="cursor-pointer w-[100px] text-[#600000] dark:text-[#ffd0d0]" viewBox="0 0 2251 2326">
+                    <path fill="currentColor" fill-rule="nonzero" fill-opacity="1"
+                        d="M 1190.78125 1.570312 C 1018.050781 9.929688 830.800781 43.898438 664.761719 97.460938 C 516.304688 145.269531 341.613281 226.800781 234.175781 298.121094 C 140.414062 360.570312 73.160156 427.199219 36.046875 494.089844 C -3.300781 565.160156 -9.996094 646.160156 17.628906 713.050781 C 26.558594 735 65.628906 795.609375 78.742188 808.148438 L 86.554688 815.730469 L 94.371094 804.230469 C 162.738281 702.859375 216.039062 640.929688 292.5 574.308594 C 477.792969 412.308594 745.6875 286.628906 1003.808594 240.121094 C 1043.160156 233.070312 1097.578125 225.75 1141.941406 221.308594 C 1188.269531 216.871094 1340.910156 216.871094 1376.359375 221.308594 C 1505.839844 237.769531 1606.570312 277.75 1677.460938 340.980469 C 1705.078125 365.539062 1715.691406 381.738281 1725.730469 413.871094 C 1731.308594 432.160156 1732.148438 440.53125 1732.148438 481.808594 C 1732.148438 530.929688 1729.640625 550.269531 1717.921875 592.859375 C 1680.53125 728.980469 1575.878906 836.109375 1402.859375 915.539062 C 1339.519531 944.539062 1270.871094 970.148438 1254.960938 970.148438 C 1248.820312 970.148438 1230.691406 967.539062 1214.5 964.140625 C 1061.300781 933.050781 942.144531 998.109375 889.960938 1141.558594 C 881.867188 1163.238281 868.472656 1211.058594 868.472656 1217.589844 C 868.472656 1220.199219 873.214844 1223.070312 881.867188 1225.691406 L 894.980469 1229.609375 L 894.980469 1243.449219 C 894.980469 1257.039062 894.980469 1257.300781 906.144531 1261.480469 C 914.796875 1264.621094 927.632812 1265.398438 961.957031 1265.398438 C 1004.648438 1265.398438 1023.070312 1263.050781 1080.828125 1250.511719 C 1082.511719 1250.25 1095.339844 1274.550781 1109.300781 1304.859375 C 1185.761719 1467.636719 1265.570312 1614.738281 1336.730469 1722.910156 C 1451.421875 1897.972656 1550.480469 2007.1875 1650.390625 2068.328125 C 1801.078125 2160.824219 1952.609375 2134.171875 2119.480469 1985.761719 C 2215.199219 1900.585938 2260.960938 1810.703125 2248.96875 1732.054688 C 2246.171875 1712.980469 2243.378906 1708.800781 2236.128906 1712.980469 C 2231.109375 1715.855469 2230.550781 1715.074219 2227.480469 1697.304688 C 2223.570312 1674.835938 2222.730469 1671.960938 2219.660156 1671.960938 C 2218.269531 1671.960938 2207.109375 1682.933594 2194.550781 1696.261719 C 2142.089844 1752.957031 2087.671875 1795.546875 2036.320312 1819.585938 C 1967.949219 1851.984375 1907.960938 1853.03125 1845.730469 1823.765625 C 1743.039062 1774.90625 1631.410156 1647.398438 1508.910156 1438.109375 C 1464.820312 1362.339844 1356.820312 1151.21875 1356.820312 1140.25 C 1356.820312 1137.890625 1360.171875 1134.761719 1364.628906 1133.191406 C 1407.609375 1115.941406 1526.488281 1062.378906 1573.089844 1039.128906 C 1791.03125 930.960938 1914.101562 837.421875 1983.578125 727.160156 C 2030.738281 652.171875 2054.460938 566.460938 2054.460938 472.140625 C 2054.460938 395.058594 2041.070312 340.449219 2006.179688 276.699219 C 1977.71875 224.441406 1954.839844 193.351562 1920.789062 161.480469 C 1822.011719 69.238281 1660.710938 16.980469 1427.980469 2.351562 C 1390.308594 0 1233.480469 -0.519531 1190.78125 1.570312 Z M 1190.78125 1.570312 " />
+                </svg>
+            </a>
+
+            <ul class="flex items-center gap-6 text-[#b0b2c3] pointer-events-auto">
+                <li>
+                    <a href="https://www.linkedin.com/in/ripanpramanik/" target="_blank">
+                        <svg class="w-7 hover:text-[#c3c3c3] dark:text-white transition-colors"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path fill="currentColor"
+                                d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://twitter.com/ripanpramanik" target="_blank">
+                        <svg class="w-7 hover:text-[#c3c3c3] dark:text-white transition-colors"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path fill="currentColor"
+                                d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/dev.ripan/" target="_blank">
+                        <svg class="w-7 hover:text-[#c3c3c3] dark:text-white transition-colors"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path fill="currentColor"
+                                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:dousgaming4@gmail.com" target="_blank">
+                        <svg class="w-7 hover:text-[#c3c3c3] dark:text-white transition-colors"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path fill="currentColor"
+                                d="M64 112c-8.8 0-16 7.2-16 16v22.1L220.5 291.7c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16H448c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64H448c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.github.com/Ripan-Pramanick/" target="_blank">
+                        <svg class="w-7 hover:text-[#c3c3c3] dark:text-white transition-colors"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                            <path fill="currentColor"
+                                d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </footer>
 </body>
 
 </html>
