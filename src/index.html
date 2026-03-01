@@ -1024,7 +1024,131 @@
             }
         ];
 
-        
+        // State variables
+        let currentIndex = 0;
+        let isHovered = false;
+        let isAnimating = false;
+        let autoPlayInterval;
+
+        // DOM Elements
+        const track = document.getElementById('slider-track');
+        const dotsContainer = document.getElementById('dots-container');
+        const sliderContainer = document.getElementById('slider-container');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        // SVG helper for Stars
+        const getStarSvg = (filled) => `
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="${filled ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${filled ? 'text-amber-400' : 'text-slate-200'}">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+        `;
+
+        // Initialize Slider Elements
+        function initSlider() {
+            reviews.forEach((review, index) => {
+                // Create Slide
+                const slide = document.createElement('div');
+                slide.className = 'w-full flex-shrink-0 p-8 md:p-16 flex flex-col items-center text-center relative z-10';
+                
+                let starsHtml = '';
+                for (let i = 0; i < 5; i++) {
+                    starsHtml += getStarSvg(i < review.rating);
+                }
+
+                slide.innerHTML = `
+                    <div class="flex space-x-1 mb-6">
+                        ${starsHtml}
+                    </div>
+                    <blockquote class="text-xl md:text-2xl font-medium text-slate-800 mb-8 leading-relaxed max-w-2xl">
+                        "${review.text}"
+                    </blockquote>
+                    <div class="flex flex-col items-center">
+                        <img src="${review.image}" alt="${review.name}" class="w-16 h-16 rounded-full object-cover border-4 border-indigo-50 mb-3" />
+                        <div class="font-semibold text-slate-900 text-lg">${review.name}</div>
+                        <div class="text-indigo-600 font-medium text-sm">${review.role}</div>
+                    </div>
+                `;
+                track.appendChild(slide);
+
+                // Create Dot
+                const dot = document.createElement('button');
+                dot.setAttribute('aria-label', `Go to review ${index + 1}`);
+                dot.className = `dot-btn transition-all duration-300 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${index === 0 ? 'bg-indigo-600 w-8 h-2.5' : 'bg-slate-300 hover:bg-slate-400 w-2.5 h-2.5'}`;
+                dot.onclick = () => goToSlide(index);
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        // Navigation Logic
+        function updateUI() {
+            // Move track
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update dots
+            const dots = document.querySelectorAll('.dot-btn');
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.className = 'dot-btn transition-all duration-300 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 bg-indigo-600 w-8 h-2.5';
+                } else {
+                    dot.className = 'dot-btn transition-all duration-300 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 bg-slate-300 hover:bg-slate-400 w-2.5 h-2.5';
+                }
+            });
+        }
+
+        function nextSlide() {
+            if (isAnimating) return;
+            isAnimating = true;
+            currentIndex = currentIndex === reviews.length - 1 ? 0 : currentIndex + 1;
+            updateUI();
+            setTimeout(() => isAnimating = false, 500);
+        }
+
+        function prevSlide() {
+            if (isAnimating) return;
+            isAnimating = true;
+            currentIndex = currentIndex === 0 ? reviews.length - 1 : currentIndex - 1;
+            updateUI();
+            setTimeout(() => isAnimating = false, 500);
+        }
+
+        function goToSlide(index) {
+            if (isAnimating || currentIndex === index) return;
+            isAnimating = true;
+            currentIndex = index;
+            updateUI();
+            setTimeout(() => isAnimating = false, 500);
+        }
+
+        // Autoplay Logic
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                if (!isHovered) nextSlide();
+            }, 5000);
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Event Listeners
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+
+        sliderContainer.addEventListener('mouseenter', () => {
+            isHovered = true;
+            stopAutoPlay();
+        });
+
+        sliderContainer.addEventListener('mouseleave', () => {
+            isHovered = false;
+            startAutoPlay();
+        });
+
+        // Initialize and start
+        initSlider();
+        startAutoPlay();
+
         </script>
 
     </section>
